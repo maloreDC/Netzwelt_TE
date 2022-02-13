@@ -35,9 +35,9 @@ export const LoginForm = () => {
                 });
             if (response) {
                 alert("Welcome back" + response.data.user.name);
+                Cookies.set('user', 'name')
             }
             else {
-                Cookies.set('user', 'name')
                 alert("error.data.message");
                 history.push('/')
             }
