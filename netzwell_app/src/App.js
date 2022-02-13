@@ -14,41 +14,10 @@ import axios from 'axios';
 
 function App() {
 
-  const [isAuth, setIsAuth] = useState(true)
-
-  const [users, setPosts] = useState([])
-
-
-  {/** 
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(res => {
-        console.log(res)
-        setPosts(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
-
- */}
-
 
 
   return (
     <div className='App'>
-
-      {/** 
-      <ul>
-        {
-          users.map(user => <li key={user.id}>
-            {user.name}
-          </li>
-          )}
-      </ul>
-          */}
-
-
 
       <Router>
         <Nav />
