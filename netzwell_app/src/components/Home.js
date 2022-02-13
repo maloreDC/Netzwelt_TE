@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { data } from '../data'
 import Cookies from 'js-cookie';
+import { useHistory } from "react-router-dom";
 
 function HelloWorld() {
 
@@ -19,9 +20,14 @@ function HelloWorld() {
   }, [])
  */}
 
+    let history = useHistory();
+
     const logout = () => {
-        Cookies.remove('name', { path: '/' })
-    }
+        Cookies.remove('user')
+        console.log('hello');
+        history.push('/')
+    };
+
     const nest = (items, id = null, link = 'parent') =>
         items.filter(item => item[link] === id).map(item => ({ ...item, children: nest(items, item.id) }));
 
