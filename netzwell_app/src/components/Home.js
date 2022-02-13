@@ -8,25 +8,28 @@ import Menu from './Menu';
 
 function HelloWorld() {
 
+    const [places, setPlaces] = useState([])
+
+    //for api call 
     {/** 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get('https://netzwelt-devtest.azurewebsites.net/Territories/All')
       .then(res => {
         console.log(res)
-        setPosts(res.data)
+        setPlaces(res.data)
       })
       .catch(err => {
         console.log(err)
       })
   }, [])
  */}
+    //
 
     let history = useHistory();
     const logout = () => {
         Cookies.remove('user')
         history.push('/')
     };
-
 
     const nest = (items, id = null, link = 'parent') =>
         items.filter(item => item[link] === id)
@@ -36,41 +39,14 @@ function HelloWorld() {
                 )
             );
 
-    const check = nest(data)
-    console.log(check)
+    const check = nest(data) //change 'data' to 'places'
 
     return (
         <div>
-            <h1>hello </h1>
+            <h1>Home Page </h1>
             <button onClick={logout}>Logout</button>
 
-
-
             <Menu items={check} />
-
-
-
-
-            {/** 
-            {
-
-                <ul>
-                    {
-                        data.map(data => <li key={data.id}> {data.name}</li>)
-                    }
-                </ul>
-            }
-        */}
-            {/** 
-      <ul>
-        {
-          users.map(user => <li key={user.id}>
-            {user.name}
-          </li>
-          )}
-      </ul>
-          */}
-
 
         </div >
     )
