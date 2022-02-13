@@ -19,9 +19,7 @@ function HelloWorld() {
 
  */}
     const nest = (items, id = null, link = 'parent') =>
-        items
-            .filter(item => item[link] === id)
-            .map(item => ({ ...item, children: nest(items, item.id) }));
+        items.filter(item => item[link] === id).map(item => ({ ...item, children: nest(items, item.id) }));
 
 
     return (

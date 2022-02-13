@@ -34,12 +34,12 @@ export const LoginForm = () => {
                     if (err && err.response) setError(err.response.data.message);
                 });
             if (response) {
-                alert("Welcome back" + response.data.user.name);
+                alert("Welcome back " + response.data.user.fname);
                 Cookies.set('user', 'name')
+                history.push('/')
             }
             else {
-                alert("error.data.message");
-                history.push('/')
+                alert("Invalid username or password");
             }
         },
 
