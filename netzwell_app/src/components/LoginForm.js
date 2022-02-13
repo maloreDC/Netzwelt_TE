@@ -33,10 +33,8 @@ export const LoginForm = () => {
                 .catch((err) => {
                     if (err && err.response) setError(err.response.data.message);
                 });
-
             if (response) {
                 alert("Welcome back" + response.data.user.name);
-
             }
             else {
                 Cookies.set('user', 'name')
