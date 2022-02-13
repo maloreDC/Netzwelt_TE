@@ -3,11 +3,12 @@ export const data = [
         "id": "1",
         "name": "Metro Manila",
         "parent": null
+
     },
     {
         "id": "101",
         "name": "Manila",
-        "parent": "1"
+        "parent": "1",
     },
     {
         "id": "10101",

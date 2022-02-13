@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { data } from '../data'
 import Cookies from 'js-cookie';
 import { useHistory } from "react-router-dom";
+import Menu from './Menu';
 
 function HelloWorld() {
 
@@ -21,29 +22,45 @@ function HelloWorld() {
  */}
 
     let history = useHistory();
-
     const logout = () => {
         Cookies.remove('user')
-        console.log('hello');
         history.push('/')
     };
 
-    const nest = (items, id = null, link = 'parent') =>
-        items.filter(item => item[link] === id).map(item => ({ ...item, children: nest(items, item.id) }));
 
+    const nest = (items, id = null, link = 'parent') =>
+        items.filter(item => item[link] === id)
+            .map(
+                item => (
+                    { ...item, children: nest(items, item.id) }
+                )
+            );
+
+    const check = nest(data)
+    console.log(check)
 
     return (
         <div>
             <h1>hello </h1>
             <button onClick={logout}>Logout</button>
-            <ul>
-                {
 
 
-                }
-            </ul>
+
+            <Menu items={check} />
 
 
+
+
+            {/** 
+            {
+
+                <ul>
+                    {
+                        data.map(data => <li key={data.id}> {data.name}</li>)
+                    }
+                </ul>
+            }
+        */}
             {/** 
       <ul>
         {
