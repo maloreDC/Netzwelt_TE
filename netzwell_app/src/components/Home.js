@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { data } from '../data'
+import Cookies from 'js-cookie';
 
 function HelloWorld() {
 
@@ -16,8 +17,11 @@ function HelloWorld() {
         console.log(err)
       })
   }, [])
-
  */}
+
+    const logout = () => {
+        Cookies.remove('name', { path: '/' })
+    }
     const nest = (items, id = null, link = 'parent') =>
         items.filter(item => item[link] === id).map(item => ({ ...item, children: nest(items, item.id) }));
 
@@ -25,7 +29,7 @@ function HelloWorld() {
     return (
         <div>
             <h1>hello </h1>
-            <button>Logout</button>
+            <button onClick={logout}>Logout</button>
             <ul>
                 {
 
