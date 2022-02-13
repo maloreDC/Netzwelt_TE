@@ -53,7 +53,7 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <ProtectedRoute exact path='/' component={Home} isAuth={isAuth} />
+          <ProtectedRoute exact path='/' component={Home} />
           <Route exact path='/counter' component={CounterExample} />
           <Route exact path='/account/login' component={LoginForm} />
           <Route exact path="*" component={() => "404 NOT FOUND"} />

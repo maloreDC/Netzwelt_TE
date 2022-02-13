@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import Axios from 'axios';
 import { useHistory } from "react-router-dom";
 import App from "../App";
+import Cookies from 'js-cookie';
 
 
 
@@ -35,10 +36,10 @@ export const LoginForm = () => {
 
             if (response) {
                 alert("Welcome back" + response.data.user.name);
-                sessionStorage.setItem('user', response.data.user.name)
+
             }
             else {
-                localStorage.setItem('user', 'malore')
+                Cookies.set('user', 'name')
                 alert("error.data.message");
                 history.push('/')
             }
